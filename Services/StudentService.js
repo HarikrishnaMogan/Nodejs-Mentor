@@ -1,7 +1,7 @@
 const db = require("../Shared/Mongo");
 const {studentSchema} = require("../Shared/Schema");
 const {ObjectId} = require("mongodb");
-const { ObjectID } = require("bson");
+
 const service={
    
     //get students
@@ -67,7 +67,7 @@ const service={
     {
         try{
             
-            let data = await db.students.updateOne({_id:ObjectID(req.body.id)},{$set:{mentorId:req.body.mentorId}});
+            let data = await db.students.updateOne({_id:ObjectId(req.body.id)},{$set:{mentorId:req.body.mentorId}});
             res.send(data);
 
         }
